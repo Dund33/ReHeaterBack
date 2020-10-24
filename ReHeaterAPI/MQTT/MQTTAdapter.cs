@@ -11,8 +11,8 @@ namespace ReHeaterAPI.MQTT
 {
     public class MQTTAdapter : IMqttService
     {
-        private MqttClient _mqttClient;
-        private Queue<string> _messageQueue;
+        private readonly MqttClient _mqttClient;
+        private readonly Queue<string> _messageQueue;
 
         public MQTTAdapter(string broker)
         {

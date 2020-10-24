@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ReHeaterAPI.AI;
 using ReHeaterAPI.MQTT;
-using ReHeaterAPIML.Model;
 
 namespace ReHeaterAPI.Controllers
 {

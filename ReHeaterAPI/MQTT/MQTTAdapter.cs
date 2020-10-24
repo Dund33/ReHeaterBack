@@ -18,6 +18,8 @@ namespace ReHeaterAPI.MQTT
         {
             _mqttClient = new MqttClient(broker);
             _messageQueue = new Queue<string>();
+            var clientName = Guid.NewGuid().ToString();
+            _mqttClient.Connect(clientName);
             _mqttClient.MqttMsgPublishReceived += Received;
         }
 

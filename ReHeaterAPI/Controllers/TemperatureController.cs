@@ -22,6 +22,7 @@ namespace ReHeaterAPI.Controllers
         public IActionResult Get(float? roomArea, float? targetTemp, int? roomId)
         {
             var message = $"room {roomId} with area {roomArea} setting temperature {targetTemp}";
+            _mqttService.Publish("test", message);
             return Ok(message);
         }
     }

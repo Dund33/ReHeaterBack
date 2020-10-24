@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReHeaterAPI.MQTT;
+using ReHeaterAPIML.Model;
 
 namespace ReHeaterAPI.Controllers
 {
@@ -21,7 +22,15 @@ namespace ReHeaterAPI.Controllers
         [HttpGet]
         public IActionResult Get(float? roomArea, float? targetTemp, int? roomId)
         {
-            var message = $"room {roomId} with area {roomArea} setting temperature {targetTemp}";
+            if (!targetTemp.HasValue)
+                return Ok("Please provide value for targetTemp");
+
+            var predictedQg = ConsumeModel.Predict(new ModelInput
+            {
+                Col0 = 15f,
+                Col2 = targetTemp.Value
+            });
+            var message = $"room {roomId} with area {roomArea} setting temperature {targetTemp}, predicted setting is {predictedQg.Score}";
             _mqttService.Publish("test", message);
             return Ok(message);
         }

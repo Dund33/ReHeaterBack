@@ -8,9 +8,8 @@ public class Obiekt
 
     public float Simul(float TzewN,float Tzew, float TwewN, float QgN, float Qg) //N-nominalne wartości potrzebne do obliczenia przepuszczalności cieplnej reszta to zwykłe dane Tzew - temperatura na zewnątrz , Twew - temperatura wewnątrz, Qg - moc grzejnika 
     {
-        Kcp = (QgN * (Tp - TzewN)) / ((TwewN - Tp) * (TwewN - TzewN) - 3 * (TwewN - Tp) * (Tp - TzewN));
-        Kcw = (QgN * (TwewN - Tp)) / ((TwewN - Tp) * (TwewN - TzewN) - 3 * (TwewN - Tp) * (Tp - TzewN));
-
+        Kcp = (QgN * (TzewN - Tp)) / ((Tp - TwewN) * (3 * Tp + TwewN - 4 * TzewN));
+        Kcw = (QgN * (TwewN - Tp) * (TzewN - Tp)) / ((Tp - TwewN) * (Tp - TzewN) * (3 * Tp + TwewN - 4 * TzewN));
         float Twew = (Qg - (Tzew * Kcw) - (Tp * Kcp)) / (Kcw + Kcp);
         return Twew;
     }

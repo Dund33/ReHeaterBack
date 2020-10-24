@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ReHeaterAPI.MQTT;
 
 namespace ReHeaterAPI
 {
@@ -26,9 +27,8 @@ namespace ReHeaterAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<>()
+            services.AddSingleton<IMqttService>(provider => new MQTTAdapter(Configuration["broker"]));
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

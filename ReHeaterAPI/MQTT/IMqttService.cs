@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ReHeaterAPI.MQTT
 {
-    interface IMqttService
+    public interface IMqttService
     {
         public void Publish(string topic, string message);
         public void Publish(string topic, byte[] message);

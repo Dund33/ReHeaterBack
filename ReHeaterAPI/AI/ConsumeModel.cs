@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using Microsoft.ML;
 
-namespace ReHeaterAPIML.Model
+namespace ReHeaterAPI.AI
 {
     public class ConsumeModel
     {
@@ -24,7 +24,7 @@ namespace ReHeaterAPIML.Model
             MLContext mlContext = new MLContext();
 
             // Load model & create prediction engine
-            string modelPath = @"MLModel.zip";
+            string modelPath = @"AI\MLModel.zip";
             Console.WriteLine(Directory.GetCurrentDirectory());
             ITransformer mlModel = mlContext.Model.Load(modelPath, out var modelInputSchema);
             var predEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);

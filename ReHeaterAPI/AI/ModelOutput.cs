@@ -3,7 +3,7 @@
 using System;
 using Microsoft.ML.Data;
 
-namespace ReHeaterAPIML.Model
+namespace ReHeaterAPI.AI
 {
     public class ModelOutput
     {

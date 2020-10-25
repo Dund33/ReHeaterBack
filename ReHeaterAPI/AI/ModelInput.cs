@@ -6,16 +6,28 @@ namespace ReHeaterAPI.AI
 {
     public class ModelInput
     {
-        [ColumnName("col0"), LoadColumn(0)]
-        public float Col0 { get; set; }
+        [ColumnName("Tzew"), LoadColumn(0)]
+        public float Tzew { get; set; }
 
 
-        [ColumnName("col1"), LoadColumn(1)]
-        public float Col1 { get; set; }
+        [ColumnName("Tstart"), LoadColumn(1)]
+        public float Tstart { get; set; }
 
 
-        [ColumnName("col2"), LoadColumn(2)]
-        public float Col2 { get; set; }
+        [ColumnName("Qg"), LoadColumn(2)]
+        public float Qg { get; set; }
+
+
+        [ColumnName("Area"), LoadColumn(3)]
+        public float Area { get; set; }
+
+
+        [ColumnName("iterations"), LoadColumn(4)]
+        public float Iterations { get; set; }
+
+
+        [ColumnName("Tend"), LoadColumn(5)]
+        public float Tend { get; set; }
 
 
     }

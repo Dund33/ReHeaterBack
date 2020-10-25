@@ -30,7 +30,7 @@ namespace ReHeaterAPI.Controllers
                 Col0 = 15f,
                 Col2 = targetTemp.Value
             });
-            var message = $"room {roomId} with area {roomArea} setting temperature {targetTemp}, predicted setting is {predictedQg.Score}";
+            var message = predictedQg.Score.ToString();
             _mqttService.Publish("test", message);
             return Ok(message);
         }
